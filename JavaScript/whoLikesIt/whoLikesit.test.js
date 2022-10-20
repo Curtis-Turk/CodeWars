@@ -13,4 +13,7 @@ describe("whoLikesIt",()=>{
   test("Returns a message for three likes",()=>{
     expect(whoLikesIt(["Jacob", "Jane", "Anna"])).toEqual("Jacob, Jane and Anna like this")
   })
+  test("Returns a message for four likes",()=>{
+    expect(whoLikesIt(["Jacob", "Jane", "Anna", "Jake"])).toEqual("Jacob, Jane and 2 others like this")
+  })
 })
