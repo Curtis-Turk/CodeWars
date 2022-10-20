@@ -16,4 +16,10 @@ describe("whoLikesIt",()=>{
   test("Returns a message for four likes",()=>{
     expect(whoLikesIt(["Jacob", "Jane", "Anna", "Jake"])).toEqual("Jacob, Jane and 2 others like this")
   })
+  test("Returns a message for five likes",()=>{
+    expect(whoLikesIt(["Jacob", "Jane", "Anna", "Jake", "Janet"])).toEqual("Jacob, Jane and 3 others like this")
+  }) 
+  test("Returns a message for six likes",()=>{
+    expect(whoLikesIt(["Jacob", "Jane", "Janna", "Jake", "Janet", "Jason"])).toEqual("Jacob, Jane and 4 others like this")
+  })
 })
