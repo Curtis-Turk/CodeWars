@@ -1,26 +1,34 @@
-const longestConsec = require("./consecStr")
+const longestConsec = require("./consecStr");
 
-test("return empty string with empty array",()=>{
-  expect(longestConsec([],1)).toEqual("")
-})
-test("return empty string with a 0 int",()=>{
-  expect(longestConsec(["string"],0)).toEqual("")
-})
-test("return empty string with a -1 int",()=>{
-  expect(longestConsec(["string"],-1)).toEqual("")
-})
-test("returns the string when given a 1 and a string",()=>{
-  expect(longestConsec(["string"],1)).toEqual("string")
-})
-test("returns the longest word when given a 1 int and 2 strs", ()=>{
-  expect(longestConsec(["str1","string2"],1)).toEqual("string2")
-})
-test("returns the longest word when given a 1 int and 3 strs", ()=>{
-  expect(longestConsec(["str1", "string2", "str3"],1)).toEqual("string2")
-})
-test("returns the longest word when given a 1 int and 3 strs", ()=>{
-  expect(longestConsec(["str1", "string2", "str3"],1)).toEqual("string2")
-})
-test("returns a combined longest word when given a 2 int and 2 str", ()=>{
-  expect(longestConsec(["str1", "string2"],2)).toEqual("str1string2")
-})
+test("return empty string with empty array", () => {
+  expect(longestConsec([], 1)).toEqual("");
+});
+test("return empty string with a 0 int", () => {
+  expect(longestConsec(["string"], 0)).toEqual("");
+});
+test("return empty string with a -1 int", () => {
+  expect(longestConsec(["string"], -1)).toEqual("");
+});
+test("returns the string when given a 1 and a string", () => {
+  expect(longestConsec(["string"], 1)).toEqual("string");
+});
+test("returns the longest word when given a 1 int and 2 strs", () => {
+  expect(longestConsec(["str1", "string2"], 1)).toEqual("string2");
+});
+test("returns the longest word when given a 1 int and 3 strs", () => {
+  expect(longestConsec(["str1", "string2", "str3"], 1)).toEqual("string2");
+});
+test("returns the longest word when given a 1 int and 3 strs", () => {
+  expect(longestConsec(["str1", "string2", "str3"], 1)).toEqual("string2");
+});
+test("returns a combined longest word when given a 2 int and 2 str", () => {
+  expect(longestConsec(["str1", "string2"], 2)).toEqual("str1string2");
+});
+test("returns a combined longest word when given a 2 int and 3 str", () => {
+  expect(longestConsec(["str1", "string2", "str3"], 2)).toEqual("str1string2");
+});
+// test("returns a longest word when given a 3 int and 3 str", () => {
+//   expect(longestConsec(["str1", "string2", "str3"], 2)).toEqual(
+//     "str1string2str3"
+//   );
+// });
