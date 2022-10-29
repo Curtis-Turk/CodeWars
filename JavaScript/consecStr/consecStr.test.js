@@ -32,4 +32,18 @@ test("returns a longest word when given a 3 int and 3 str", () => {
     "str1string2str3"
   );
 });
-test("returns the correct response");
+test("returns the correct response for -int k", () => {
+  expect(
+    longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], -2)
+  ).toEqual("");
+});
+test("returns ixoyx3452zzzzzzzzzzzz", () => {
+  expect(
+    longestConsec(["it", "wkppv", "ixoyx", "3452", "zzzzzzzzzzzz"], 3)
+  ).toEqual("ixoyx3452zzzzzzzzzzzz");
+});
+test("returns nothings when k is higher than total length of array", () => {
+  expect(
+    longestConsec(["it", "wkppv", "ixoyx", "3452", "zzzzzzzzzzzz"], 15)
+  ).toEqual("");
+});

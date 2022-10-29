@@ -1,5 +1,5 @@
 const longestConsec = (strArr, k) => {
-  if (strArr.length == 0 || k <= 0) return "";
+  if (strArr.length == 0 || k > strArr.length || k <= 0) return "";
 
   currentWord = "";
   longestWord = "";
