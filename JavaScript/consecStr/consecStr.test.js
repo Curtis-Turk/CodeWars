@@ -27,8 +27,9 @@ test("returns a combined longest word when given a 2 int and 2 str", () => {
 test("returns a combined longest word when given a 2 int and 3 str", () => {
   expect(longestConsec(["str1", "string2", "str3"], 2)).toEqual("str1string2");
 });
-// test("returns a longest word when given a 3 int and 3 str", () => {
-//   expect(longestConsec(["str1", "string2", "str3"], 2)).toEqual(
-//     "str1string2str3"
-//   );
-// });
+test("returns a longest word when given a 3 int and 3 str", () => {
+  expect(longestConsec(["str1", "string2", "str3"], 3)).toEqual(
+    "str1string2str3"
+  );
+});
+test("returns the correct response");

@@ -1,21 +1,14 @@
 const longestConsec = (strArr, k) => {
-  if (strArr.length == 0 || k <= 0) {
-    return "";
-  } else if (k == 1) {
-    return longestStr(strArr);
-  } else combineArr = [];
-  prevString = "";
-  strArr.forEach((str) => {
-    combineArr.push(prevString + str);
-    prevString = str;
-  });
-  console.log(combineArr);
-  return longestStr(combineArr);
+  if (strArr.length == 0 || k <= 0) return "";
+
+  currentWord = "";
+  longestWord = "";
+
+  for (i = 0; i < strArr.length; i++) {
+    currentWord = strArr.slice(i, i + k).join("");
+    if (currentWord.length > longestWord.length) longestWord = currentWord;
+  }
+  return longestWord;
 };
 
-const longestStr = (inputArray) => {
-  return inputArray.reduce((a, b) => {
-    return a.length >= b.length ? a : b;
-  });
-};
 module.exports = longestConsec;
