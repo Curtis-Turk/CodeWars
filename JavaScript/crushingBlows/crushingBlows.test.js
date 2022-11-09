@@ -15,3 +15,12 @@ test("No spoons here for four different words", () => {
 test("returns first letters swapped for two words", () => {
   expect(spoonerise("Ca Ba")).toEqual("Ba Ca");
 });
+test("returns first letters swapped for two words", () => {
+  expect(spoonerise("Dental Receptionist")).toEqual("Rental Deceptionist");
+});
+test("returns first letters swapped for three words skipping middle word", () => {
+  expect(spoonerise("pack of lies")).toEqual("lack of pies");
+});
+test("returns first letters swapped for two words skipping middle word", () => {
+  expect(spoonerise("strong wrangler")).toEqual("wrong strangler");
+});
