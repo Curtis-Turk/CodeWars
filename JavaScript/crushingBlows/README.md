@@ -33,7 +33,7 @@ assert.strictEqual(spoonerise("strong wrangler"), "wrong strangler", 'Testing on
 });
 
 it("3 Word Tests", function() {
-assert.strictEqual(spoonerise("take a shower"), "shake a tower", 'Testing on take a shower')
+assert.strictEqual(spoonerise(""), "shake a tower", 'Testing on take a shower')
 assert.strictEqual(spoonerise("pack of lies"), "lack of pies", 'Testing on pack of lies')
 assert.strictEqual(spoonerise("flipping the channel"), "chipping the flannel", 'Testing on flipping the channel')
 });

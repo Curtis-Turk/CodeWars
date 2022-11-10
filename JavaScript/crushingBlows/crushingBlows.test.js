@@ -21,6 +21,9 @@ test("returns first letters swapped for two words", () => {
 test("returns first letters swapped for three words skipping middle word", () => {
   expect(spoonerise("pack of lies")).toEqual("lack of pies");
 });
-test("returns first letters swapped for two words skipping middle word", () => {
+test("returns first letters swapped for two words", () => {
   expect(spoonerise("strong wrangler")).toEqual("wrong strangler");
+});
+test("returns first letters swapped for two words", () => {
+  expect(spoonerise("Cba Xyo")).toEqual("Xya Cbo");
 });

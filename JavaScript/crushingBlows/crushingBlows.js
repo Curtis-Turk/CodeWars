@@ -1,16 +1,35 @@
 const spoonerise = (inputString) => {
-  let wordArr = inputString.split(" ");
-  if (wordArr.length < 2 || wordArr.length > 3) return "No spoons here";
-  let middle = " ";
-  if (wordArr.length == 3) {
-    middle = ` ${wordArr.splice(1, 1)} `;
+  let words = inputString.split(" ");
+  if (words.length < 2 || words.length > 3) return "No spoons here";
+
+  let e = " ";
+  if (words.length == 3) {
+    e = ` ${words.splice(1, 1)} `;
   }
-  spoon = wordArr[0].replace(wordArr[0][0], wordArr[1][0]);
-  rise = wordArr[1].replace(wordArr[1][0], wordArr[0][0]);
 
-  console.log(spoon);
+  chunk1 = getChunk(words[0]);
+  chunk2 = getChunk(words[1]);
 
-  return `${spoon}${middle}${rise}`;
+  spoon = chunk2[0] + chunk1[1];
+  rise = chunk1[0] + chunk2[1];
+
+  return `${spoon}${e}${rise}`;
+};
+
+const getChunk = (word) => {
+  let vowels = ["a", "e", "i", "o", "u"];
+  let chars = [...word];
+
+  let i = 0;
+  while (true) {
+    if (vowels.includes(chars[i])) {
+      return [
+        chars.slice(0, i).join(""),
+        chars.slice(i, chars.length).join(""),
+      ];
+    }
+    i++;
+  }
 };
 
 module.exports = spoonerise;
