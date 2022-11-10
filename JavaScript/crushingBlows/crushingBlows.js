@@ -7,16 +7,16 @@ const spoonerise = (inputString) => {
     e = ` ${words.splice(1, 1)} `;
   }
 
-  chunk1 = getChunk(words[0]);
-  chunk2 = getChunk(words[1]);
+  firstWord = splitOnVowel(words[0]);
+  secondWord = splitOnVowel(words[1]);
 
-  spoon = chunk2[0] + chunk1[1];
-  rise = chunk1[0] + chunk2[1];
+  spoon = secondWord[0] + firstWord[1];
+  rise = firstWord[0] + secondWord[1];
 
   return `${spoon}${e}${rise}`;
 };
 
-const getChunk = (word) => {
+const splitOnVowel = (word) => {
   let vowels = ["a", "e", "i", "o", "u"];
   let chars = [...word];
 
