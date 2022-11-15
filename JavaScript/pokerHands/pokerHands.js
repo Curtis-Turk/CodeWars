@@ -1,5 +1,5 @@
 const scoreHand = (arrayOfCardObjects) => {
-  return 1;
+  return arrayOfCardObjects[0].value;
 };
 
 module.exports = scoreHand;
