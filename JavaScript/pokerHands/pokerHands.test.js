@@ -1,4 +1,4 @@
-const { scoreHigh, scorePair } = require("./pokerHands");
+const { scoreHigh, scoreMultiples } = require("./pokerHands");
 
 describe("High card", () => {
   test("Returns a score", () => {
@@ -43,39 +43,79 @@ describe("High card", () => {
 describe("Pair", () => {
   test("Score of a pair", () => {
     expect(
-      scorePair([
-        { suit: "heart", value: 1 },
-        { suit: "spades", value: 1 },
-      ])
+      scoreMultiples(
+        [
+          { suit: "heart", value: 1 },
+          { suit: "spades", value: 1 },
+        ],
+        2
+      )
     ).toEqual(1);
   });
   test("Score of a pair with higher card", () => {
     expect(
-      scorePair([
-        { suit: "heart", value: 1 },
-        { suit: "spades", value: 1 },
-        { suit: "heart", value: 2 },
-      ])
+      scoreMultiples(
+        [
+          { suit: "heart", value: 1 },
+          { suit: "spades", value: 1 },
+          { suit: "heart", value: 2 },
+        ],
+        2
+      )
     ).toEqual(1);
   });
   test("Score of a pair with the higher card first", () => {
     expect(
-      scorePair([
-        { suit: "heart", value: 2 },
-        { suit: "heart", value: 1 },
-        { suit: "spades", value: 1 },
-      ])
+      scoreMultiples(
+        [
+          { suit: "heart", value: 2 },
+          { suit: "heart", value: 1 },
+          { suit: "spades", value: 1 },
+        ],
+        2
+      )
     ).toEqual(1);
   });
   test("Score of a different pair with the higher card first", () => {
     expect(
-      scorePair([
-        { suit: "heart", value: 1 },
-        { suit: "heart", value: 1 },
-        { suit: "spades", value: 1 },
-        { suit: "spades", value: 2 },
-        { suit: "spades", value: 2 },
-      ])
+      scoreMultiples(
+        [
+          { suit: "heart", value: 1 },
+          { suit: "heart", value: 1 },
+          { suit: "spades", value: 1 },
+          { suit: "spades", value: 2 },
+          { suit: "spades", value: 2 },
+        ],
+        2
+      )
     ).toEqual(2);
+  });
+});
+
+describe("Three of a kind", () => {
+  test("Score a three of a kind", () => {
+    expect(
+      scoreMultiples(
+        [
+          { suit: "heart", value: 1 },
+          { suit: "spades", value: 1 },
+          { suit: "diamond", value: 1 },
+        ],
+        3
+      )
+    ).toEqual(1);
+  });
+  test("Score a three of a kind with another card", () => {
+    expect(
+      scoreMultiples(
+        [
+          { suit: "diamond", value: 2 },
+          { suit: "heart", value: 1 },
+          { suit: "spades", value: 1 },
+          { suit: "diamond", value: 1 },
+        ],
+        3
+      )
+    ).toEqual(1);
   });
 });
