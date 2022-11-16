@@ -3,9 +3,16 @@ const scoreHigh = (arrayOfCardObjects) => {
 };
 
 const scorePair = (arrayOfCardObjects) => {
-  return arrayOfCardObjects[1].value;
+  let pairScore;
+  arrayOfCardObjects.forEach((card) => {
+    if (numberOfCardsInArray(arrayOfCardObjects, card.value) == 2)
+      pairScore = card.value;
+  });
+  return pairScore;
 };
 
-const countValues = () => {};
+const numberOfCardsInArray = (cardArray, value) => {
+  return cardArray.filter((card) => card.value === value).length;
+};
 
 module.exports = { scoreHigh, scorePair };

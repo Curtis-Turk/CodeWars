@@ -39,8 +39,9 @@ describe("High card", () => {
     ).toEqual(13);
   });
 });
+
 describe("Pair", () => {
-  test("Returns the score of a pair", () => {
+  test("Score of a pair", () => {
     expect(
       scorePair([
         { suit: "heart", value: 1 },
@@ -48,7 +49,7 @@ describe("Pair", () => {
       ])
     ).toEqual(1);
   });
-  test("Returns the score of a pair with higher card", () => {
+  test("Score of a pair with higher card", () => {
     expect(
       scorePair([
         { suit: "heart", value: 1 },
@@ -57,14 +58,24 @@ describe("Pair", () => {
       ])
     ).toEqual(1);
   });
-  test("Returns the score of a pair with higher card", () => {
+  test("Score of a pair with the higher card first", () => {
+    expect(
+      scorePair([
+        { suit: "heart", value: 2 },
+        { suit: "heart", value: 1 },
+        { suit: "spades", value: 1 },
+      ])
+    ).toEqual(1);
+  });
+  test("Score of a different pair with the higher card first", () => {
     expect(
       scorePair([
         { suit: "heart", value: 1 },
+        { suit: "heart", value: 1 },
         { suit: "spades", value: 1 },
-        { suit: "heart", value: 2 },
-        { suit: "heart", value: 2 },
+        { suit: "spades", value: 2 },
+        { suit: "spades", value: 2 },
       ])
-    ).toEqual(1);
+    ).toEqual(2);
   });
 });
