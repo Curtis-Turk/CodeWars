@@ -16,7 +16,10 @@ const getNumberOfCardsInArray = (cardArray, value) => {
 };
 
 const scoreStraight = (cardArray) => {
-  return 5;
+  let values = cardArray.map((card) => {
+    return card.value;
+  });
+  return values.sort()[values.length - 1];
 };
 
 module.exports = { scoreHigh, scoreMultiples, scoreStraight };

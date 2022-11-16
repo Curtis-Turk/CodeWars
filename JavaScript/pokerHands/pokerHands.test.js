@@ -151,18 +151,27 @@ describe("four of a kind", () => {
 });
 
 describe("Straight", () => {
-  test("Score a straight", () => {
+  test("Score a straight as highest card", () => {
     expect(
-      scoreStraight(
-        [
-          { suit: "heart", value: 1 },
-          { suit: "spades", value: 2 },
-          { suit: "diamond", value: 3 },
-          { suit: "clubs", value: 4 },
-          { suit: "clubs", value: 5 },
-        ],
-        4
-      )
+      scoreStraight([
+        { suit: "heart", value: 1 },
+        { suit: "spades", value: 2 },
+        { suit: "diamond", value: 3 },
+        { suit: "clubs", value: 4 },
+        { suit: "clubs", value: 5 },
+      ])
     ).toEqual(5);
+  });
+
+  test("Score a straight as highest card", () => {
+    expect(
+      scoreStraight([
+        { suit: "heart", value: 5 },
+        { suit: "spades", value: 6 },
+        { suit: "diamond", value: 7 },
+        { suit: "clubs", value: 8 },
+        { suit: "clubs", value: 9 },
+      ])
+    ).toEqual(9);
   });
 });
