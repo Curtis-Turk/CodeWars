@@ -1,4 +1,4 @@
-const { scoreHigh, scoreMultiples } = require("./pokerHands");
+const { scoreHigh, scoreMultiples, scoreStraight } = require("./pokerHands");
 
 describe("High card", () => {
   test("Returns a score", () => {
@@ -117,5 +117,52 @@ describe("Three of a kind", () => {
         3
       )
     ).toEqual(1);
+  });
+});
+
+describe("four of a kind", () => {
+  test("Score a four of a kind", () => {
+    expect(
+      scoreMultiples(
+        [
+          { suit: "heart", value: 1 },
+          { suit: "spades", value: 1 },
+          { suit: "diamond", value: 1 },
+          { suit: "clubs", value: 1 },
+        ],
+        4
+      )
+    ).toEqual(1);
+  });
+  test("Score a four of a kind with another card", () => {
+    expect(
+      scoreMultiples(
+        [
+          { suit: "heart", value: 10 },
+          { suit: "spades", value: 10 },
+          { suit: "diamond", value: 10 },
+          { suit: "clubs", value: 10 },
+          { suit: "clubs", value: 1 },
+        ],
+        4
+      )
+    ).toEqual(10);
+  });
+});
+
+describe("Straight", () => {
+  test("Score a straight", () => {
+    expect(
+      scoreStraight(
+        [
+          { suit: "heart", value: 1 },
+          { suit: "spades", value: 2 },
+          { suit: "diamond", value: 3 },
+          { suit: "clubs", value: 4 },
+          { suit: "clubs", value: 5 },
+        ],
+        4
+      )
+    ).toEqual(5);
   });
 });

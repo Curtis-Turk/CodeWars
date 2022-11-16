@@ -1,18 +1,22 @@
-const scoreHigh = (arrayOfCardObjects) => {
-  return Math.max(...arrayOfCardObjects.map((card) => card.value));
+const scoreHigh = (cardArray) => {
+  return Math.max(...cardArray.map((card) => card.value));
 };
 
-const scoreMultiples = (arrayOfCardObjects, cardMultiple) => {
+const scoreMultiples = (cardArray, cardMultiple) => {
   let pairScore;
-  arrayOfCardObjects.forEach((card) => {
-    if (numberOfCardsInArray(arrayOfCardObjects, card.value) == cardMultiple)
+  cardArray.forEach((card) => {
+    if (getNumberOfCardsInArray(cardArray, card.value) == cardMultiple)
       pairScore = card.value;
   });
   return pairScore;
 };
 
-const numberOfCardsInArray = (cardArray, value) => {
+const getNumberOfCardsInArray = (cardArray, value) => {
   return cardArray.filter((card) => card.value === value).length;
 };
 
-module.exports = { scoreHigh, scoreMultiples };
+const scoreStraight = (cardArray) => {
+  return 5;
+};
+
+module.exports = { scoreHigh, scoreMultiples, scoreStraight };
