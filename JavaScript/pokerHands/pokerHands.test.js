@@ -1,4 +1,9 @@
-const { scoreHigh, scoreMultiples, scoreStraight } = require("./pokerHands");
+const {
+  scoreHigh,
+  scoreMultiples,
+  scoreStraight,
+  scoreFullHouse,
+} = require("./pokerHands");
 
 describe("High card", () => {
   test("Returns a score", () => {
@@ -173,5 +178,19 @@ describe("Straight", () => {
         { suit: "clubs", value: 9 },
       ])
     ).toEqual(9);
+  });
+});
+
+describe("Full house", () => {
+  test("Score a full house", () => {
+    expect(
+      scoreFullHouse([
+        { suit: "heart", value: 5 },
+        { suit: "spades", value: 5 },
+        { suit: "diamond", value: 5 },
+        { suit: "clubs", value: 1 },
+        { suit: "clubs", value: 1 },
+      ])
+    ).toEqual([5, 1]);
   });
 });

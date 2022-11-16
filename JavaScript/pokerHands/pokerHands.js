@@ -22,4 +22,8 @@ const scoreStraight = (cardArray) => {
   return values.sort()[values.length - 1];
 };
 
-module.exports = { scoreHigh, scoreMultiples, scoreStraight };
+const scoreFullHouse = (cardArray) => {
+  return [scoreMultiples(cardArray, 3), scoreMultiples(cardArray, 2)];
+};
+
+module.exports = { scoreHigh, scoreMultiples, scoreStraight, scoreFullHouse };
