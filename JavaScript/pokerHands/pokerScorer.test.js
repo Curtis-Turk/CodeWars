@@ -4,7 +4,7 @@ const {
   scoreStraight,
   scoreFullHouse,
   scoreFlush,
-} = require("./pokerHands");
+} = require("./pokerScorer");
 
 describe("High card", () => {
   test("Returns a score", () => {

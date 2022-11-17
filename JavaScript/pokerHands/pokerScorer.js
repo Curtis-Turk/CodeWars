@@ -31,8 +31,7 @@ const scoreFlush = (cardArray) => {
     .map((card) => {
       return card.value;
     })
-    .sort((a, b) => a - b)
-    .reverse();
+    .sort((a, b) => b - a);
 };
 
 module.exports = {
