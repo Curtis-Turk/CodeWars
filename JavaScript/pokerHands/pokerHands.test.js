@@ -3,6 +3,7 @@ const {
   scoreMultiples,
   scoreStraight,
   scoreFullHouse,
+  scoreFlush,
 } = require("./pokerHands");
 
 describe("High card", () => {
@@ -192,5 +193,29 @@ describe("Full house", () => {
         { suit: "clubs", value: 1 },
       ])
     ).toEqual([5, 1]);
+  });
+  test("Score a full differnt house", () => {
+    expect(
+      scoreFullHouse([
+        { suit: "heart", value: 5 },
+        { suit: "spades", value: 5 },
+        { suit: "diamond", value: 11 },
+        { suit: "clubs", value: 11 },
+        { suit: "clubs", value: 11 },
+      ])
+    ).toEqual([11, 5]);
+  });
+});
+describe("Flush", () => {
+  test("Score a straight flush", () => {
+    expect(
+      scoreFlush([
+        { suit: "heart", value: 1 },
+        { suit: "heart", value: 4 },
+        { suit: "heart", value: 7 },
+        { suit: "heart", value: 11 },
+        { suit: "heart", value: 12 },
+      ])
+    ).toEqual([12, 11, 7, 4, 1]);
   });
 });

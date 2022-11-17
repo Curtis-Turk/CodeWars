@@ -26,4 +26,19 @@ const scoreFullHouse = (cardArray) => {
   return [scoreMultiples(cardArray, 3), scoreMultiples(cardArray, 2)];
 };
 
-module.exports = { scoreHigh, scoreMultiples, scoreStraight, scoreFullHouse };
+const scoreFlush = (cardArray) => {
+  return cardArray
+    .map((card) => {
+      return card.value;
+    })
+    .sort((a, b) => a - b)
+    .reverse();
+};
+
+module.exports = {
+  scoreHigh,
+  scoreMultiples,
+  scoreStraight,
+  scoreFullHouse,
+  scoreFlush,
+};
