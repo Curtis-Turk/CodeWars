@@ -21,4 +21,8 @@ public class WelcomeTest {
     public void greetWithPolish(){
         assertEquals("Witamy", welcome.greet("polish"));
     }
+    @Test
+    public void greetWithEnglishwhenNotInDB(){
+        assertEquals("Welcome", welcome.greet("portugese"));
+    }
 }

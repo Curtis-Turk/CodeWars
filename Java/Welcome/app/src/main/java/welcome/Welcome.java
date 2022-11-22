@@ -3,6 +3,8 @@ package welcome;
 import java.util.Hashtable;
 import java.util.Map;
 
+import static java.util.Objects.nonNull;
+
 public class Welcome {
     public static String greet(String language){
         Hashtable<String, String> translateData = new Hashtable<String, String>();
@@ -24,6 +26,9 @@ public class Welcome {
         translateData.put("swedish", "Valkommen");
         translateData.put("welsh", "Croeso");
 
-        return translateData.get(language);
+        if(nonNull(translateData.get(language))) {
+            return translateData.get(language);
+        }
+        return translateData.get("English");
     }
 }
