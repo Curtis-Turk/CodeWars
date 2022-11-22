@@ -27,3 +27,6 @@ it("recede test", () => {
 it("deals with uppercase", () => {
   expect(duplicateEncode("Success")).toEqual(")())())");
 });
+it("test for random chars", () => {
+  expect(duplicateEncode("(( @")).toEqual("))((");
+});
