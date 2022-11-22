@@ -1,8 +1,9 @@
 function duplicateEncode(word) {
-  if (word.length == 2) {
-    return "((";
+  let encodedString = "";
+  for (let i = 0; i < word.length; i++) {
+    encodedString += "(";
   }
-  return "(";
+  return encodedString;
 }
 
 module.exports = duplicateEncode;
