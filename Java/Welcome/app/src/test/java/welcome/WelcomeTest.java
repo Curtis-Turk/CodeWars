@@ -17,4 +17,8 @@ public class WelcomeTest {
     public void greetWithCzech(){
         assertEquals("Vitejte", welcome.greet("Czech"));
     }
+    @Test
+    public void greetWithPolish(){
+        assertEquals("Witamy", welcome.greet("polish"));
+    }
 }
