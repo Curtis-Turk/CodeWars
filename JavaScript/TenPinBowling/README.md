@@ -1,3 +1,5 @@
+https://www.codewars.com/kata/5531abe4855bcc8d1f00004c
+
 Ten-Pin Bowling
 
 In the game of ten-pin bowling, a player rolls a bowling ball down a lane to knock over pins. There are ten pins set at the end of the bowling lane. Each player has 10 frames to roll a bowling ball down a lane and knock over as many pins as possible. The first nine frames are ended after two rolls or when the player knocks down all the pins. The last frame a player will receive an extra roll every time they knock down all ten pins; up to a maximum of three total rolls.
@@ -28,4 +30,3 @@ A spare is scored when a player knocks down all ten pins in two rolls. In the fi
 For a more detailed explanation see Wikipedia:
 
 http://en.wikipedia.org/wiki/Ten-pin_bowling#Scoring
-
