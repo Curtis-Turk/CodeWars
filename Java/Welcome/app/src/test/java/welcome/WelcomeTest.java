@@ -11,6 +11,10 @@ public class WelcomeTest {
     }
     @Test
     public void greetWithDutch(){
-        assertEquals("Welkom", welcome.greet("dutch"));
+        assertEquals("Welkom", welcome.greet("Dutch"));
+    }
+    @Test
+    public void greetWithCzech(){
+        assertEquals("Vitejte", welcome.greet("Czech"));
     }
 }
