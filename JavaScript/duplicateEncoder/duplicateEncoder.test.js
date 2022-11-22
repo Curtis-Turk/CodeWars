@@ -12,3 +12,15 @@ it("returns ((( with three different letters", () => {
 it("returns ((((( with three different letters", () => {
   expect(duplicateEncode("abcde")).toEqual("(((((");
 });
+it("returns )) with two of the same letter", () => {
+  expect(duplicateEncode("aa")).toEqual("))");
+});
+it("returns ))) with three of the same letter", () => {
+  expect(duplicateEncode("aaa")).toEqual(")))");
+});
+it("returns ()) with one different and two of the same letter", () => {
+  expect(duplicateEncode("abb")).toEqual("())");
+});
+it("recede test", () => {
+  expect(duplicateEncode("recede")).toEqual("()()()");
+});
