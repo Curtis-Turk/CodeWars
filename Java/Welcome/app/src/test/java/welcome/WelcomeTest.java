@@ -1,0 +1,16 @@
+package welcome;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class WelcomeTest {
+
+    private static final Welcome welcome = new Welcome();
+    @Test
+    public void greetWithEnglish(){
+        assertEquals("Welcome", welcome.greet("English"));
+    }
+    @Test
+    public void greetWithDutch(){
+        assertEquals("Welkom", welcome.greet("dutch"));
+    }
+}
