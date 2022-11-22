@@ -1,6 +1,6 @@
 function duplicateEncode(word) {
   let encodedString = "";
-  let charArr = word.split("");
+  let charArr = word.toLowerCase().split("");
 
   if (charArr.length == 1) return "(";
 

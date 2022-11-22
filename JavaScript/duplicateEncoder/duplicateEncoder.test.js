@@ -24,3 +24,6 @@ it("returns ()) with one different and two of the same letter", () => {
 it("recede test", () => {
   expect(duplicateEncode("recede")).toEqual("()()()");
 });
+it("deals with uppercase", () => {
+  expect(duplicateEncode("Success")).toEqual(")())())");
+});
