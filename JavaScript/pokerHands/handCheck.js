@@ -24,6 +24,7 @@ const check3unique = (cardArray, uniqueValues) => {
   }
   return "2pair";
 };
+
 const checkfullHouse = (cardArray, uniqueValues) => {
   for (const cardValue of uniqueValues) {
     if (cardArray.filter((card) => card.value === cardValue).length === 3)

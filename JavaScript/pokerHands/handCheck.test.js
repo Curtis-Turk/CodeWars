@@ -12,6 +12,7 @@ describe("multiples", () => {
       ])
     ).toEqual("pair");
   });
+
   test("should return triple with a tiple", () => {
     expect(
       checkForMultiples([
@@ -23,6 +24,7 @@ describe("multiples", () => {
       ])
     ).toEqual("triple");
   });
+
   test("should return 4 with a four of a kind", () => {
     expect(
       checkForMultiples([
@@ -34,6 +36,7 @@ describe("multiples", () => {
       ])
     ).toEqual("four");
   });
+
   test("should return 2 pair with 2 pairs", () => {
     expect(
       checkForMultiples([
@@ -45,6 +48,7 @@ describe("multiples", () => {
       ])
     ).toEqual("2pair");
   });
+
   test("should return fullHouse with a pair and triple", () => {
     expect(
       checkForMultiples([
@@ -55,5 +59,17 @@ describe("multiples", () => {
         { suit: "diamond", value: 5 },
       ])
     ).toEqual("fullHouse");
+  });
+
+  test("should return no multiples if none exist", () => {
+    expect(
+      checkForMultiples([
+        { suit: "heart", value: 1 },
+        { suit: "heart", value: 2 },
+        { suit: "spade", value: 3 },
+        { suit: "club", value: 4 },
+        { suit: "diamond", value: 5 },
+      ])
+    ).toEqual("no multiple found");
   });
 });
