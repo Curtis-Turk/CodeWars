@@ -1,13 +1,17 @@
 const permutations = require("./permuations");
-
-it("returns a single char in an array", () => {
-  expect(permutations("a")).toEqual(["a"]);
+describe("Single solution", () => {
+  it("returns a single char in an array", () => {
+    expect(permutations("a")).toEqual(["a"]);
+  });
+  it("returns a 2 char array", () => {
+    expect(permutations("aa")).toEqual(["aa"]);
+  });
+  it("returns a 3 char array", () => {
+    expect(permutations("aaa")).toEqual(["aaa"]);
+  });
 });
-it("returns a 2 char array as a single solution", () => {
-  expect(permutations("aa")).toEqual(["aa"]);
+describe("Two letter solutions", () => {
+  it("returns both options", () => {
+    expect(permutations("ab")).toEqual(["ab", "ba"]);
+  });
 });
-it("returns a 3 char array as a single solution", () => {
-  expect(permutations("aaa")).toEqual(["aaa"]);
-});
-
-console.log(permutations("a"));
