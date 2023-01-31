@@ -27,11 +27,11 @@ test("returns an array for a differnt function", () => {
 });
 
 test("returns correctly one of the description test results", () => {
-  // console.log(zipWith(Math.pow, [10, 10, 10, 10], [0, 1, 2, 3]));
   expect(zipWith(Math.pow, [10, 10, 10, 10], [0, 1, 2, 3])).toEqual([
     1, 10, 100, 1000,
   ]);
 });
+
 const precision = (p) => (n) => ((p) => Math.round(n * p) / p)(Math.pow(10, p));
 const uncurry =
   (fn) =>
