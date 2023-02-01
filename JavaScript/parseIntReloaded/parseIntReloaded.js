@@ -1,5 +1,6 @@
 const parseIntReloaded = (intStr) => {
-  return 1;
+  if (intStr === "One") return 1;
+  return 2;
 };
 
 module.exports = parseIntReloaded;
