@@ -25,7 +25,7 @@ test("return for 20", () => {
 });
 test("return for tens", () => {
   expect(parseIntReloaded("thirty")).toEqual(30);
-  expect(parseIntReloaded("fourty")).toEqual(40);
+  expect(parseIntReloaded("forty")).toEqual(40);
   expect(parseIntReloaded("fifty")).toEqual(50);
 });
 
@@ -35,7 +35,7 @@ test("return for Twenty-One", () => {
 
 test("return for random numbers under 100", () => {
   expect(parseIntReloaded("twenty-three")).toEqual(23);
-  expect(parseIntReloaded("fourty-six")).toEqual(46);
+  expect(parseIntReloaded("forty-six")).toEqual(46);
   expect(parseIntReloaded("seventy-five")).toEqual(75);
   expect(parseIntReloaded("thirty-two")).toEqual(32);
   expect(parseIntReloaded("ninety-nine")).toEqual(99);
@@ -62,3 +62,19 @@ test("return for the Thousands", () => {
 test("returns correctly with ands", () => {
   expect(parseIntReloaded("one hundred and twenty-four")).toEqual(124);
 });
+test("returns correctly for 246", () => {
+  expect(parseIntReloaded("two hundred forty-six")).toEqual(246);
+});
+
+test.only("returns correctly for numbers under 99000", () => {
+  expect(
+    parseIntReloaded("eighty-three thousand nine hundred and nineteen")
+  ).toEqual(83919);
+  expect(parseIntReloaded("six hundred sixty six thousand sixty six")).toEqual(
+    666666
+  );
+});
+
+// test("returns correctly for 100,000", () => {
+//   expect(parseIntReloaded("one hundred thousand")).toEqual(100000);
+// });
