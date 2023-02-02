@@ -77,6 +77,10 @@ test("returns for 666,666", () => {
   );
 });
 
+test("returns for 1000,000", () => {
+  expect(parseIntReloaded("one million")).toEqual(1000000);
+});
+
 // test("returns correctly for 100,000", () => {
 //   expect(parseIntReloaded("one hundred thousand")).toEqual(100000);
 // });

@@ -7,18 +7,25 @@ const parseIntReloaded = (intStr) => {
     .split(" ");
 
   const intParser = (strArr) => {
-    return strArr.reduce((acc, word, i, words) => {
-      if (isThousands(word)) {
-        return (acc = acc * 1000 + intParser(words.splice(i + 1)));
-      } else if (isHundreds(word)) {
-        return (acc *= 100);
+    return strArr.reduce((acc, currIntStr, i, intStrArr) => {
+      if (isMillion(currIntStr)) {
+        return (acc *= strNumLookup[currIntStr]);
+      } else if (isThousands(currIntStr)) {
+        return (acc =
+          acc * strNumLookup[currIntStr] + intParser(intStrArr.splice(i + 1)));
+      } else if (isHundreds(currIntStr)) {
+        return (acc *= strNumLookup[currIntStr]);
       } else {
-        return (acc += strNumLookup[word]);
+        return (acc += strNumLookup[currIntStr]);
       }
     }, 0);
   };
 
   return intParser(intStrArr);
+};
+
+const isMillion = (numStr) => {
+  return strNumLookup[numStr] === 1000000;
 };
 
 const isThousands = (numStr) => {
@@ -59,6 +66,7 @@ const strNumLookup = {
   ninety: 90,
   hundred: 100,
   thousand: 1000,
+  million: 1000000,
 };
 
 module.exports = parseIntReloaded;
