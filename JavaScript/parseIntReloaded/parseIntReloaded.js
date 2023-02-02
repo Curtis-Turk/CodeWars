@@ -37,6 +37,7 @@ const tens = {
 
 const decimals = {
   hundred: 100,
+  thousand: 1000,
 };
 
 const parseIntReloaded = (intStr) => {
@@ -49,7 +50,7 @@ const parseIntReloaded = (intStr) => {
     const numStr = splitStr[i];
 
     let currNum = parseNumrStr(numStr);
-    if (currNum === 100) {
+    if (currNum === 100 || currNum === 1000) {
       numArr.push(currNum * parseNumrStr(splitStr[i + 1]));
       i++;
     } else {
