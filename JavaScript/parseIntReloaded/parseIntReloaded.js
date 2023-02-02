@@ -1,57 +1,74 @@
 const ones = {
-  Zero: 0,
-  One: 1,
-  Two: 2,
-  Three: 3,
-  Four: 4,
-  Five: 5,
-  Six: 6,
-  Seven: 7,
-  Eight: 8,
-  Nine: 9,
+  zero: 0,
+  one: 1,
+  two: 2,
+  three: 3,
+  four: 4,
+  five: 5,
+  six: 6,
+  seven: 7,
+  eight: 8,
+  nine: 9,
 };
 
 const teens = {
-  Ten: 10,
-  Eleven: 11,
-  Twelve: 12,
-  Thirteen: 13,
-  Fourteen: 14,
-  Fifteen: 15,
-  Sixteen: 16,
-  Seventeen: 17,
-  Eighteen: 18,
-  Nineteen: 19,
+  ten: 10,
+  eleven: 11,
+  twelve: 12,
+  thirteen: 13,
+  fourteen: 14,
+  fifteen: 15,
+  sixteen: 16,
+  seventeen: 17,
+  eighteen: 18,
+  nineteen: 19,
 };
 
 const tens = {
-  Twenty: 20,
-  Thirty: 30,
-  Fourty: 40,
-  Fifty: 50,
-  Sixty: 60,
-  Seventy: 70,
-  Eighty: 80,
-  Ninety: 90,
+  twenty: 20,
+  thirty: 30,
+  fourty: 40,
+  fifty: 50,
+  sixty: 60,
+  seventy: 70,
+  eighty: 80,
+  ninety: 90,
+};
+
+const decimals = {
+  hundred: 100,
 };
 
 const parseIntReloaded = (intStr) => {
-  const splitStr = intStr.split("-");
+  const splitStr = intStr.split("-").join(" ").split(" ").reverse();
 
-  let numberArr = [];
+  console.log(splitStr);
+  let numArr = [];
 
   for (let i = 0; i < splitStr.length; i++) {
-    const numberString = splitStr[i];
-    if (ones[numberString]) {
-      numberArr.push(ones[numberString]);
-    } else if (teens[numberString]) {
-      numberArr.push(teens[numberString]);
+    const numStr = splitStr[i];
+
+    let currNum = parseNumrStr(numStr);
+    if (currNum === 100) {
+      numArr.push(currNum * parseNumrStr(splitStr[i + 1]));
+      i++;
     } else {
-      numberArr.push(tens[numberString]);
+      numArr.push(currNum);
     }
   }
-  console.log(numberArr);
-  return numberArr.reduce((a, b) => a + b);
+  return numArr.reduce((a, b) => a + b);
+};
+
+const parseNumrStr = (numStr) => {
+  if (ones[numStr]) {
+    return ones[numStr];
+  } else if (teens[numStr]) {
+    return teens[numStr];
+  } else if (tens[numStr]) {
+    return tens[numStr];
+  } else if (decimals[numStr]) {
+    return decimals[numStr];
+  }
 };
 
 module.exports = parseIntReloaded;
