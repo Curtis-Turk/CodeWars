@@ -30,7 +30,7 @@ test("should return true", () => {
     ])
   ).toEqual(true);
 });
-test.only("should return false due to 0", () => {
+test("should return false due to 0", () => {
   expect(
     validateSudoku([
       [8, 4, 7, 2, 6, 5, 1, 0, 3],

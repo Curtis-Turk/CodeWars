@@ -24,20 +24,17 @@ function validateSudoku(board) {
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {
       if (board[i][j] === 0) return false;
-      if (allSetsSizeOfNine) {
-        return true;
+      if (
+        !isValidRow(board, i) ||
+        !isValidCol(board, j) ||
+        !isValidBlock(board, i - (i % 3), j - (j % 3))
+      ) {
+        return false;
       }
     }
   }
+  return true;
 }
-
-const allSetsSizeOfNine = () => {
-  return (
-    !isValidRow(board, i) ||
-    !isValidCol(board, j) ||
-    !isValidBlock(board, i - (i % 3), j - (j % 3))
-  );
-};
 
 console.log(
   validateSudoku([
@@ -52,4 +49,5 @@ console.log(
     [2, 9, 3, 8, 5, 6, 4, 7, 1],
   ])
 );
+
 module.exports = validateSudoku;
