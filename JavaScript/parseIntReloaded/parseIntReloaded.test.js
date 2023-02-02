@@ -58,3 +58,7 @@ test("return for the Thousands", () => {
   expect(parseIntReloaded("eight thousand")).toEqual(8000);
   expect(parseIntReloaded("six thousand")).toEqual(6000);
 });
+
+test("returns correctly with ands", () => {
+  expect(parseIntReloaded("one hundred and twenty-four")).toEqual(124);
+});

@@ -69,6 +69,8 @@ const parseNumrStr = (numStr) => {
     return tens[numStr];
   } else if (decimals[numStr]) {
     return decimals[numStr];
+  } else {
+    return 0;
   }
 };
 
