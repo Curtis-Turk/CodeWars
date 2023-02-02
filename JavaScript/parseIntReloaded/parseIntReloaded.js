@@ -1,42 +1,31 @@
 const parseIntReloaded = (intStr) => {
-  const splitStr = intStr.split("-").join(" ").split(" ").reverse();
+  const intStrArr = intStr
+    .split("-")
+    .join(" ")
+    .split(" and ")
+    .join(" ")
+    .split(" ");
 
-  let numArr = [];
-
-  for (let i = 0; i < splitStr.length; i++) {
-    const num = parseNumStr(splitStr[i]);
-
-    if (isDecimal(num)) {
-      const nextNum = parseNumStr(splitStr[i + 1]);
-      const nextNextNum = parseNumStr(splitStr[i + 2]);
-
-      if (splitStr[i + 2] && !isDecimal(nextNextNum)) {
-        numArr.push(num * (nextNum + nextNextNum));
-        i += 2;
+  const intParser = (strArr) => {
+    return strArr.reduce((acc, word, i, words) => {
+      if (isThousands(word)) {
+        return (acc = acc * 1000 + intParser(words.splice(i + 1)));
+      } else if (isHundreds(word)) {
+        return (acc *= 100);
+      } else {
+        return (acc += strNumLookup[word]);
       }
-      // else if(){
+    }, 0);
+  };
 
-      // }
-      else {
-        numArr.push(num * nextNum);
-        i++;
-      }
-    } else {
-      numArr.push(num);
-    }
-  }
-
-  console.log("number: ", splitStr, "parsed: ", numArr);
-  return numArr.reduce((a, b) => a + b);
+  return intParser(intStrArr);
 };
 
-const isDecimal = (currNum) => {
-  return currNum === 100 || currNum === 1000;
+const isThousands = (numStr) => {
+  return strNumLookup[numStr] === 1000;
 };
-
-const parseNumStr = (numStr) => {
-  if (strNumLookup[numStr]) return strNumLookup[numStr];
-  return 0;
+const isHundreds = (numStr) => {
+  return strNumLookup[numStr] === 100;
 };
 
 const strNumLookup = {

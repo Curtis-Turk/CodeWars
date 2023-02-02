@@ -66,12 +66,14 @@ test("returns correctly for 246", () => {
   expect(parseIntReloaded("two hundred forty-six")).toEqual(246);
 });
 
-test.only("returns correctly for numbers under 99000", () => {
+test("returns correctly for 83,919", () => {
   expect(
     parseIntReloaded("eighty-three thousand nine hundred and nineteen")
   ).toEqual(83919);
+});
+test("returns for 666,666", () => {
   expect(parseIntReloaded("six hundred sixty six thousand sixty six")).toEqual(
-    666666
+    666066
   );
 });
 
