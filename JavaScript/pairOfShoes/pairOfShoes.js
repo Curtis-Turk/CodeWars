@@ -1,7 +1,6 @@
 function pairOfShoes(shoes) {
   if (shoes.length % 2 !== 0) return false;
-
-  let pairedShoes = [];
+  let shoeSet = new Set();
 
   for (let i = 0; i < shoes.length; i++) {
     const size = shoes[i][1];
@@ -12,13 +11,12 @@ function pairOfShoes(shoes) {
       const checkLeftRight = shoes[j][0];
 
       if (size === checkSize && leftRight !== checkLeftRight) {
-        pairedShoes.push(shoes[i]);
-        shoes.splice(j, 1);
+        shoeSet.add(shoes[i]);
       }
     }
   }
+  if (shoeSet.size === shoes.length) return true;
 
-  if (pairedShoes.length === shoes.length) return true;
   return false;
 }
 
