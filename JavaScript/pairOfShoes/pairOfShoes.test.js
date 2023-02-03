@@ -20,11 +20,20 @@ test("should return false for odd number of shoes", () => {
   ).toEqual(false);
 });
 
-test("should return true for a matching pair of shoes", () => {
+test.only("should return true for a matching pair of shoes", () => {
+  expect(
+    pairOfShoes([
+      [0, 1],
+      [1, 1],
+    ])
+  ).toEqual(true);
+});
+
+test("returns false for pair of unmatching shoes", () => {
   expect(
     pairOfShoes([
       [0, 1],
       [0, 1],
     ])
-  ).toEqual(true);
+  ).toEqual(false);
 });
