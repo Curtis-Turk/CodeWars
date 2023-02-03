@@ -1,23 +1,16 @@
 function pairOfShoes(shoes) {
-  if (shoes.length % 2 !== 0) return false;
-  let shoeSet = new Set();
+  let countObj = {};
 
   for (let i = 0; i < shoes.length; i++) {
-    const size = shoes[i][1];
-    const leftRight = shoes[i][0];
-
-    for (let j = 0; j < shoes.length; j++) {
-      const checkSize = shoes[j][1];
-      const checkLeftRight = shoes[j][0];
-
-      if (size === checkSize && leftRight !== checkLeftRight) {
-        shoeSet.add(shoes[i]);
-      }
-    }
+    const shoeSize = shoes[i][1];
+    if (!countObj.hasOwnProperty(shoeSize)) countObj[`${shoeSize}`] = 0;
+    shoes[i][0] === 0 ? countObj[`${shoeSize}`]-- : countObj[`${shoeSize}`]++;
   }
-  if (shoeSet.size === shoes.length) return true;
 
-  return false;
+  for (const key in countObj) {
+    if (countObj[key] !== 0) return false;
+  }
+  return true;
 }
 
 module.exports = pairOfShoes;
