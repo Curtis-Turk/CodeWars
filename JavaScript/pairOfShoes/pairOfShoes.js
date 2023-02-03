@@ -1,5 +1,6 @@
 function pairOfShoes(shoes) {
-  return false;
+  if (shoes.length % 2 !== 0) return false;
+  return true;
 }
 
 module.exports = pairOfShoes;
