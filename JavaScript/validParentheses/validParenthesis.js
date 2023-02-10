@@ -1,17 +1,18 @@
 function validParentheses(parens) {
-  let lCount = 0;
-  let rCount = 0;
   const pArray = parens.split("");
+
+  let bracket = 0;
 
   for (let i = 0; i < pArray.length; i++) {
     if (pArray[i] === "(") {
-      lCount++;
+      bracket++;
     } else if (pArray[i] === ")") {
-      rCount++;
+      if (bracket === 0) return false;
+      bracket--;
     }
   }
 
-  return lCount === rCount;
+  return bracket === 0;
 }
 
 module.exports = validParentheses;

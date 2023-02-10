@@ -14,3 +14,9 @@ test(`values: ")"`, () => expect(validParentheses(")")).toEqual(false));
 test(`values: ""`, () => expect(validParentheses("")).toEqual(true));
 test(`values: "()"`, () => expect(validParentheses("()")).toEqual(true));
 test(`values: "())"`, () => expect(validParentheses("())")).toEqual(false));
+test(`values: "())("`, () => {
+  expect(validParentheses("())(")).toEqual(false);
+});
+test.only(`values: "(())"`, () => {
+  expect(validParentheses("(())")).toEqual(true);
+});
