@@ -17,6 +17,6 @@ test(`values: "())"`, () => expect(validParentheses("())")).toEqual(false));
 test(`values: "())("`, () => {
   expect(validParentheses("())(")).toEqual(false);
 });
-test.only(`values: "(())"`, () => {
+test(`values: "(())"`, () => {
   expect(validParentheses("(())")).toEqual(true);
 });
