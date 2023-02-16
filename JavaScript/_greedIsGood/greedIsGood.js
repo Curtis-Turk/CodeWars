@@ -5,6 +5,8 @@ function score(dice) {
     return 1200;
   } else if (countObj["1"] === 1) {
     return 100;
+  } else if (countObj["1"] === 2) {
+    return 200;
   }
   return 0;
 }
