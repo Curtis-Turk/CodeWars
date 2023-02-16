@@ -1,16 +1,3 @@
-function score(dice) {
-  const countObj = buildCountObj(dice);
-
-  if (countObj["1"] === 5) {
-    return 1200;
-  } else if (countObj["1"] === 1) {
-    return 100;
-  } else if (countObj["1"] === 2) {
-    return 200;
-  }
-  return 0;
-}
-
 function buildCountObj(dice) {
   let countObj = {};
   for (let i = 0; i < dice.length; i++) {
@@ -21,6 +8,42 @@ function buildCountObj(dice) {
     }
   }
   return countObj;
+}
+
+const scoreSingleObj = {
+  1: 100,
+  5: 50,
+};
+
+const scoreTripleObj = {
+  1: 1000,
+  6: 600,
+  5: 500,
+  4: 400,
+  3: 300,
+  2: 200,
+};
+
+function scoreTriple(countObj) {
+  for (const roll in countObj) {
+    console.log(roll);
+
+    if (countObj[roll] > 3) total += scoreTripleObj[roll];
+  }
+}
+
+function score(dice) {
+  const countObj = buildCountObj(dice);
+  let total = 0;
+  console.log(countObj);
+  for (const roll in countObj) {
+    console.log(roll, countObj[roll]);
+
+    if (countObj[roll] >= 3 && scoreTripleObj[roll]) {
+      total += scoreTripleObj[roll];
+    }
+  }
+  return total;
 }
 
 module.exports = score;
