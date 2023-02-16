@@ -6,3 +6,6 @@ test("should score a dice", () => {
 test("should score a dice for 0", () => {
   expect(score([6, 6, 2, 2, 3])).toEqual(0);
 });
+test("should score a dice for 100", () => {
+  expect(score([6, 6, 2, 2, 1])).toEqual(100);
+});
