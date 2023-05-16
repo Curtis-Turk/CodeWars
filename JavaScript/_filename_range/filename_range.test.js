@@ -47,4 +47,7 @@ describe("answer", () => {
   it("pulls out the range required for the hiker", () => {
     expect(fileNameRangeSelect("hiker")).toEqual([0, 5]);
   });
+  it("pulls out the range required for the hikers.js", () => {
+    expect(fileNameRangeSelect("hikers.js")).toEqual([0, 6]);
+  });
 });
