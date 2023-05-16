@@ -5,13 +5,14 @@ const fileNameRangeSelect = (filename) => {
     const char = fileArr[i];
     range[1]++;
     if (char === "/") {
-      range[0] = fileArr.indexOf(char) + 1;
+      range[0] = i + 1;
     }
     if (char === "." || char === "_") {
       range[1]--;
       break;
     }
   }
+  console.log(filename, range);
   return range;
 };
 
