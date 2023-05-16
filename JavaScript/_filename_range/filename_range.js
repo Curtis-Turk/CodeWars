@@ -4,7 +4,10 @@ const fileNameRangeSelect = (filename) => {
   for (let i = 0; i < fileArr.length; i++) {
     const char = fileArr[i];
     range[1]++;
-    if (char === ".") {
+    if (char === "/") {
+      range[0] = fileArr.indexOf(char) + 1;
+    }
+    if (char === "." || char === "_") {
       range[1]--;
       break;
     }

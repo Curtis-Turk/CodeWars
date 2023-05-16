@@ -50,4 +50,16 @@ describe("answer", () => {
   it("pulls out the range required for the hikers.js", () => {
     expect(fileNameRangeSelect("hikers.js")).toEqual([0, 6]);
   });
+  it("checks for each filetype in testJson", () => {
+    for (const filename in testJson) {
+      if (Object.hasOwnProperty.call(testJson, filename)) {
+        console.log(
+          "🚀 ~ file: filename_range.test.js:57 ~ it ~ eleÒment:",
+          filename,
+          testJson[filename]
+        );
+        expect(fileNameRangeSelect(filename)).toEqual(testJson[filename]);
+      }
+    }
+  });
 });
